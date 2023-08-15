@@ -1,2 +1,45 @@
 # LEO-NTN-Communication-Signal-Test-and-Verification
-低軌衛星與相關通訊網路課程
+低軌衛星與相關通訊網路課程測試與驗證
+kEYSIGHT 公司Nick
+- 5G NTN Concept
+  - 2022 satellite comm news : starlink support ukraine 
+    - 提供地面接收設備就可以直接上網(當基礎設施被毀壞，依然不受到影響)
+  - 4 key LEO ntework suppliers : TeleSat, Oneweb, SpaceX STARLINK, Amazon
+  - use ku, ka band
+  - CH bandwidth : 250 MHZ
+  - modulation/scheme : propietary
+  - NTN status(low data rate, low band) :
+    - spaceX cowork with T-mobile 讓手機可以直接連網(T-mobile takes coverage above and beyond with spaceX) : mid-band spetrum
+    - 中國移動研究院與中興通訊、交通運輸信息等共同發布 5G NTN技術(3GPP R17 NTN協議，文字短訊、語音對講技術)
+    - Emergency SOS via satellite (iphone-14)
+    - Qualcomm,Ericson
+  - LEO, EMO, HEO 低軌中軌高軌衛星通訊
+  - Protocol:
+    - Rel-15 (TR 28.811)
+    - Rel-16 (TR 38.821)
+    - Rel-17 (TR 38.829)
+  - LEO Satellite system :
+    - Gateway(地面接收設備)
+    - Satellite(衛星本體)
+    - User Equipment(個人設備)
+  - Phased array antenna design workflow challenges
+    - SWaP-C (size, weught, power, cost)
+  - Digital and RF Mixed DUT becomes a part of the measurement system
+  - Modilation distortion solution w/ PNA-X and SG
+  - Satellite paylod test
+  - G/T measurement
+  - Transmitter module test
+  - VXG Signal generator
+  - FCC part 25 test case
+- NTN Reality Innovative test
+  - 5G Non Terrestrial Network(NTN)
+  - Testing Realistic satellite radio links
+  - Channel model structure
+  - NR-NTN E2E test bed prototyping
+  - cellular and satellite interconnected with 5G NTN
+  - Main system parameters of 5G NTN
+  - VSAT User equipment
+  - software simulation
+    - 
+  - hardware emulation
+    - 
