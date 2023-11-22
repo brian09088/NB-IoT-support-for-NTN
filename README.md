@@ -4,7 +4,7 @@ kEYSIGHT 公司Nick
 - 5G NTN Concept
   - 2022 satellite comm news : starlink support ukraine 
     - 提供地面接收設備就可以直接上網(當基礎設施被毀壞，依然不受到影響)
-  - 4 key LEO ntework suppliers : TeleSat, Oneweb, SpaceX STARLINK, Amazon
+  - 4 key LEO network suppliers : TeleSat, Oneweb, SpaceX STARLINK, Amazon
   - use ku, ka band
   - CH bandwidth : 250 MHZ
   - modulation/scheme : propietary
