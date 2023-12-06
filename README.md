@@ -1,4 +1,4 @@
-# My Graduate Paper Topic :  
+# My Graduate Research Paper Topic :  
 - **LEO-NTN for NB-IoT**
 - [Project Link](https://github.com/users/brian09088/projects/15?pane=issue&itemId=43072511)
 # LEO-NTN-Communication-Signal-Test-and-Verification
