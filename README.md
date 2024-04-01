@@ -1,6 +1,3 @@
-# My Graduate Research Paper Topic :  
-- **LEO-NTN for NB-IoT**
-- [Project Link](https://github.com/users/brian09088/projects/15?pane=issue&itemId=43072511)
 # LEO-NTN-Communication-Signal-Test-and-Verification
 低軌衛星與相關通訊網路課程測試與驗證
 kEYSIGHT 公司Nick
