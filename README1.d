@@ -1,0 +1,2 @@
+- **LEO-NTN for NB-IoT**
+- [Project Link](https://github.com/users/brian09088/projects/15?pane=issue&itemId=43072511)
