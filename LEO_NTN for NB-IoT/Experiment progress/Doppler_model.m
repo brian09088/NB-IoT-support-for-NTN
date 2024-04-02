@@ -18,6 +18,7 @@ function [fd] =  Doppler_model(fc, v, alpha)
     % Ts : symbol period of the transmit signal
     % Bc : coherence bandwidth
     % sigma_tao denote : RMS delay spread
+    c = 3 * (10^8);      % 光速 c = 3*(10^8) m/s
 
     fd = fc * ((v * cos(alpha))/c); % fd(kHz)
 

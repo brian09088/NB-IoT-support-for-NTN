@@ -61,7 +61,7 @@ ntnNarrowbandAnalyzer(narrowbandOut)
 % Initialize the NTN TDL channel parameters in a structure
 ntnTDLParams = commonParams;
 ntnTDLParams.NTNChannelType = "TDL";
-ntnTDLParams.DelayProfile = "NTN-TDL-A";
+ntnTDLParams.DelayProfile = "NTN-TDL-D";
 ntnTDLParams.DelaySpread = 30e-9;                          % In s
 ntnTDLParams.TransmissionDirection = "Downlink";
 ntnTDLParams.MIMOCorrelation = "Low";

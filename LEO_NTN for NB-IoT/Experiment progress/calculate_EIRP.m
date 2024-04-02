@@ -17,7 +17,14 @@
 % EIRP (effective isotropic radiated power) −6.99 dBW (Transmit power + antenna_gain)
 
 function [EIRP] = calculate_EIRP(UE_antenna_power, UE_antenna_gain, Sat_antenna_gain)
-
-    EIRP = UE_antenna_power + UE_antenna_gain + Sat_antenna_gain;
+    
+    UE_antenna_gain = 0;
+    Sat_antenna_gain = 0;
+    UE_antenna_W = UE_antenna_power / 1000;
+    UE_antenna_dBW = 10 * log10(UE_antenna_W);
+    % Transmit power = 200mW ~= 23 dBm ~= −6.99 dBW
+    % dBW = dBm -30
+    
+    EIRP = UE_antenna_dBW + UE_antenna_gain + Sat_antenna_gain; 
 
 end
