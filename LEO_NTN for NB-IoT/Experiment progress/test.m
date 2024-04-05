@@ -3,10 +3,8 @@ clc,clear,close all
 %%%%%% 地球同步衛星 %%%%%%
 
 %% Time Interval / Create and Vddisualize Scenario
-% IRIS-A (NORAD-ID:51044) 
-% Launch date: January 13, 2022
-startTime = datetime(2022,1,3,0,0,0);
-stopTime = startTime + hours(8.5);
+startTime = datetime(2024,4,2,5,0,0);
+stopTime = startTime + hours(9);
 sampleTime = 30; % seconds
 sc = satelliteScenario(startTime,stopTime,sampleTime);
 viewer = satelliteScenarioViewer(sc,ShowDetails=false);
@@ -18,13 +16,37 @@ GSpointing = "satellite"; % zenith ( the antenna of the gs points to zenith ) or
 Phasingmethod = "alternate"; % standard or alternative
 
 %% Add Satellite Constellation
+
+%% Add Satellite Constellation
+
 % As of February 2024, there are 5,438 Starlink satellites in orbit
 numSat_Per_Plane = 11;
 numOrbits = 6;
+
 % defined satellite constellation
 % ex: space-X starlink satellite constellation(satellite_tle.csv)
 sat_tle = uigetfile('*.csv','Choose a .csv file');
-starlink = satellite(sc, sat_tle, "OrbitPropagator",OrbitPropagator);
+
+% Read the TLE file
+data = readtable(sat_tle, 'ReadVariableNames', false, 'Delimiter', '\n');
+
+% Determine the number of satellites in the TLE file
+num_satellites = height(data) / 3;
+
+% Create the satellite scenario
+starlink_scenario = satelliteScenario;
+
+% Add satellites to the scenario
+for i = 1:num_satellites
+    sat_name = data{3 * (i - 1) + 1, 1}{1};
+    sat_line1 = data{3 * (i - 1) + 2, 1}{1};
+    sat_line2 = data{3 * (i - 1) + 3, 1}{1};
+    
+    starlink_scenario.addSatellite(sat_name, sat_line1, sat_line2, "OrbitPropagator", OrbitPropagator);
+end
+
+% Show the satellite scenario
+show(starlink_scenario);
 
 %% User defined data - satellite parameters
 Re = 6371e3;                    % Radius of Earth
@@ -125,11 +147,6 @@ gs_lat = 24.4703;
 gs_lon = 121.0015;
 gs_location = [gs_lat, gs_lon];
 
-% gs_name = 'south-korea';
-% gs_lat = 36.35080;
-% gs_lon = 127.30122;
-% gs_location = [gs_lat, gs_lon];
-
 alpha = inclination;       % inclination (elevation angle)發射傾角 degrees (>10 degree)
 % phi = calculate_phi(gs_lat, gs_lon); % central angle (地心_天北極 & 地心與衛星連線夾角)
 % distance between sat & UE (meters)
@@ -177,8 +194,7 @@ Bandwidth = 750e3; % Bandwidth in Hz
 BitRate = 512e3; % Bit Rate in Hz (bit/s)
 
 %% Calculte free-space path loss
-signal_fq = fc/(10^6);
-FSPL = FSPL_model(signal_fq, d);
+FSPL = FSPL_model(fc, d);
 fprintf("自由空間路徑損耗 FSPL = %f (dB)\n", FSPL)
 
 %% Doppler shift model
@@ -285,6 +301,15 @@ LEO_Sat_1 = satellite(sc, semi_major_axis, ...
     Name = "LEO 1", ...
     OrbitPropagator = "two-body-keplerian");
 
+LEO_Sat_2 = satellite(sc,semi_major_axis, ...
+    eccentricity, ...
+    inclination, ...
+    raan, ...
+    arg_of_periapsis, ...
+    trueAnomaly, ...
+    Name="LEO 2", ...
+    OrbitPropagator="two-body-keplerian");
+
 %% Add Grid of Ground Stations Covering Taiwan-ROC(地面基地台)
 latlim = [22.00417 25.12825];
 lonlim = [118.31833 121.753];
@@ -318,18 +343,3 @@ gs = groundStation(sc,gslat,gslon);
 isotropic = arrayConfig(Size=[1 1]);
 tx = receiver(gs,Antenna=isotropic);
 
-%% have some problem to be fix
-pattern(tx,Size=500000);
-
-% Compute Raster Coverage Map Data
-delete(viewer)
-maxsigstrength = satcoverage(gridpts,sc,startTime,inregion,beamWidth);
-
-% 設定當地重要城市經緯度，進行定位與標註
-TP_location = [25.02 121.31]; % Taipei
-TC_location = [24.08 120.41]; % Taichung
-Kao_location = [22.36 120.18]; % Kaosiung
-
-textm(TP_location(1),TP_location(2),"Taipei")
-textm(TC_location(1),TC_location(2),"Taichung")
-textm(Kao_location(1),Kao_location(2),"Kaohsiung")

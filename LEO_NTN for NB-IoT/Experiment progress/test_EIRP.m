@@ -15,7 +15,7 @@
 
 % antenna_gain = UE_antenna_gain + Sat_antenna_gain
 EIRP = Transmit_Power + UE_antenna_gain + Sat_antenna_gain;
-EIRP = 10 * log(200) + 0 + 30;
+EIRP = 10 * log10(200) + 0 + 30;
 
 % EIRP per MHz = EIRP / Bandwidth(MHz) = 53 / 2000 = 0.0265 dBm/MHz
 

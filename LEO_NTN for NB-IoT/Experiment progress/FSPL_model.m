@@ -11,7 +11,8 @@ function [FSPL] = FSPL_model(signal_fq, d)
     % FSPL = fspl(d,lambda);
 
     % (Paper formula)theoretical free-space path loss given by following formula
-    % fc is the center frequency in MHz and d is the distance in km
-    FSPL = 32.45 + 20*log(signal_fq) + 20*log(d);
+    % fc = center frequency (MHz) 
+    % d = distance in (km)
+    FSPL = 32.45 + 20*log10(signal_fq) + 20*log10(d);
 
 end
