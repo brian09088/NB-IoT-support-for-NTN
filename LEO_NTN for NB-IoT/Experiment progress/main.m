@@ -22,8 +22,9 @@ Phasingmethod = "alternate"; % standard or alternative
 numSat_Per_Plane = 11;
 numOrbits = 6;
 % defined satellite constellation
-% ex: space-X starlink satellite constellation(satellite_tle.csv)
+% ex: space-X Starlink satellite constellation(satellite_tle.csv)
 sat_tle = uigetfile('*.csv','Choose a .csv file');
+% sat_tle = tleread('***.tle');
 starlink = satellite(sc, sat_tle, "OrbitPropagator",OrbitPropagator);
 
 %% User defined data - satellite parameters
@@ -119,19 +120,11 @@ EIRP = calculate_EIRP(UE_antenna_power, UE_antenna_gain, Sat_antenna_gain);
 fprintf("有效全向輻射功率 EIRP = %f (dBW)\n", EIRP) % -6.99
 
 %% User defined data - Ground stations locaiton
-
-gs_name = '國家太空中心-TASA';
-gs_lat = 24.4703;
-gs_lon = 121.0015;
-gs_location = [gs_lat, gs_lon];
-
-% gs_name = 'south-korea';
-% gs_lat = 36.35080;
-% gs_lon = 127.30122;
-% gs_location = [gs_lat, gs_lon];
-
-alpha = inclination;       % inclination (elevation angle)發射傾角 degrees (>10 degree)
-% phi = calculate_phi(gs_lat, gs_lon); % central angle (地心_天北極 & 地心與衛星連線夾角)
+Ground_Station();
+% inclination (elevation angle)發射傾角 degrees (>10 degree)
+alpha = inclination;       
+% phi = calculate_phi(gs_lat, gs_lon); 
+% central angle (地心_天北極 & 地心與衛星連線夾角)
 % distance between sat & UE (meters)
 d = calculate_d(Re, alpha, h0);
 fprintf("communication path distance = %f (m)\n", d)
@@ -248,7 +241,7 @@ fprintf("maximum possible Doppler shift compensation (fd_max) = %d (kHz)\n", fd_
 
 %% Link-level simulation parameters
 % FFT_size = 128;
-SCS = 15;     %(kHz)
+% SCS = 15;
 % Multiple access = SC-FDMA
 % Modulation QPSK
 % Channel coding 1/3 Turbo code
@@ -272,7 +265,12 @@ NRep = 2;
 % 4.1 Reduction in  beam coverage
 % 4.2 Addition of DMRS symbol
 
-%% Relay Algorithm 接下來進度
+%% Ch5 Performance Analysis
+% 5.1 Block Error Rate (BLER)
+% 5.2 Throughput
+% 5.3 Link Margin
+
+%% Relay Algorithm
 % Relay_algorithm()
 
 %% 自定義衛星

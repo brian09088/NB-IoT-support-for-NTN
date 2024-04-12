@@ -15,4 +15,10 @@ function [FSPL] = FSPL_model(signal_fq, d)
     % d = distance in (km)
     FSPL = 32.45 + 20*log10(signal_fq) + 20*log10(d);
 
+
+    % (Paper formula)free-space path loss
+    % fc = caarier frequency
+    % d = slant range
+    % FSPL = 10*log10((4*pi*d*fc)/c)^2;
+
 end
