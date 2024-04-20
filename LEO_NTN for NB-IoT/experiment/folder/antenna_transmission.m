@@ -105,6 +105,8 @@ function [] = antenna_transmission(sc, starlink, fc, txpower, PL)
     pointAt(gimbalgs2,starlink);
 
     lnk = link(txGs1,rxSat,txSat,rxGs2);
+
+    play(sc)
     % antenna_interference();
     
     % ground station coverage/distance/numbers...
