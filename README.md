@@ -1,9 +1,10 @@
 # LEO-NTN : satellites simulation
 - satellites scenario
-- frequency, band, beam, coverage, projection
-- antenna
+- beam, coverage, projection
+- antenna, frequency, band, CNR
 - orbit propogator, TLE
 - ISL, uplink, downlink, relay
+- Doppler model, compensation
 - NB-IoT support
 ------
 # experimental results
