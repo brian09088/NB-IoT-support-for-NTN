@@ -84,4 +84,22 @@ pointAt(gimbalgs2,sat);
 
 lnk = link(txGs1,rxSat,txSat,rxGs2);
 play(sc)
-linkIntervals(lnk)
+
+%% export Link Intervals to .csv file
+intervals = linkIntervals(lnk); 
+lnkTable = table(intervals.Source, intervals.Target, intervals.IntervalNumber, ...
+                 intervals.StartTime, intervals.EndTime, intervals.Duration);
+
+% Export to CSV with UTF-8 encoding
+writetable(lnkTable, 'Link_Intervals.csv', 'Encoding', 'UTF-8');
+
+%% export to .mat file
+% Step 1: Read the CSV file into a MATLAB table
+Link_Table = readtable('Link_Intervals.csv');
+
+% Step 2: Rename the default variable names to desired names
+Link_Table.Properties.VariableNames = {'Source', 'Target', 'IntervalNumber', ...
+                                     'StartTime', 'EndTime', 'Duration'};
+
+% Step 3: Save the table to a .mat file
+save('Link_Intervals.mat', 'Link_Table');
