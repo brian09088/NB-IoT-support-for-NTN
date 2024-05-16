@@ -1,4 +1,4 @@
-[Experimental Simulation](https://youtu.be/BMfWaZEAvUQ?si=o6JGOguEd4Jc10Td)
+[Experimental Simulation Video](https://youtu.be/BMfWaZEAvUQ?si=o6JGOguEd4Jc10Td)
 ------
 # LEO-NTN : satellites simulation
 - satellites scenario
