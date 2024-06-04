@@ -1,6 +1,6 @@
 [Experimental Simulation Video](https://youtu.be/BMfWaZEAvUQ?si=o6JGOguEd4Jc10Td)
 ------
-# Main strategy : **TN <-> NTN Relay**
+# Main Target : **TN <-> NTN Relay strategy**
 ------
 ## LEO-NTN : satellites simulation
 - satellites scenario
