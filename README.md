@@ -1,15 +1,17 @@
 [Experimental Simulation Video](https://youtu.be/BMfWaZEAvUQ?si=o6JGOguEd4Jc10Td)
 ------
-# LEO-NTN : satellites simulation
+# Main strategy : **TN <-> NTN Relay**
+------
+## LEO-NTN : satellites simulation
 - satellites scenario
 - beam, coverage, projection
 - antenna, frequency, band, CNR
 - orbit propogator, TLE
-- ISL, uplink, downlink, relay
+- ISL, uplink, downlink
 - Doppler model, compensation
 - NB-IoT support
 ------
-# experimental results
+## experimental results
 - energy-saving
 - power consumption
 - resource utilization
