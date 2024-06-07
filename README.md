@@ -14,7 +14,7 @@
 ## experimental results
 - energy-saving
 - power consumption
-- resource utilization
+- resource utilization / Throughput
 - signal strength
 - Trade-off : network latency and average satellite transmission power
 - Trade-off : between power consumption and NTN coverage
