@@ -8,10 +8,13 @@
 - antenna, frequency, band, CNR
 - orbit propogator, TLE
 - uplink, downlink channel model
-- ground-station satellite link, GSL
-- UE satellite link, USL
-- Inter Satellite Link, ISL
-- Inter Orbit Link, IOL
+- links:
+  - ground-station satellite link, GSL
+  - UE satellite link, USL
+  - Inter Satellite Link, ISL
+  - Inter Orbit Link, IOL
+- link budget
+- CNR
 - Doppler model, compensation
 - NB-IoT support
 ------
