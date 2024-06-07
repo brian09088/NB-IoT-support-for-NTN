@@ -7,7 +7,11 @@
 - beam, coverage, projection
 - antenna, frequency, band, CNR
 - orbit propogator, TLE
-- ISL, uplink, downlink
+- uplink, downlink channel model
+- ground-station satellite link, GSL
+- UE satellite link, USL
+- Inter Satellite Link, ISL
+- Inter Orbit Link, IOL
 - Doppler model, compensation
 - NB-IoT support
 ------
