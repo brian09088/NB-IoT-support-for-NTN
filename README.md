@@ -2,11 +2,12 @@
 ------
 # Main Target : **TN <-> NTN Relay strategy**
 ------
-## LEO-NTN : satellites simulation
+## NTN device carrier : Satellites
 - satellites scenario
+- base station deployment, UE scheduling, UE distributions
 - beam, coverage, projection
-- antenna, frequency, band, CNR
-- orbit propogator, TLE
+- antenna, frequency, band
+- orbit propogator, TLE, routings
 - uplink, downlink channel model
 - links:
   - ground-station satellite link, GSL
